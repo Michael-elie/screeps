@@ -10,6 +10,10 @@ module.exports.loop = function () {
     // You should spawn creeps at this point
 
 
+
+
+
+
     /**
      * DELETE DEAD MINIONS MEMORY
      */
@@ -27,12 +31,12 @@ module.exports.loop = function () {
     /**
      * HARVESTER SPAWNERS
      */
-    if(harvesters.length < 4) {
+    /*if(harvesters.length < 3) {
         var newName = 'Harvester' + Game.time;
         console.log('Spawning new harvester: ' + newName);
-        Game.spawns['Spawn_1'].spawnCreep([WORK,CARRY,MOVE], newName,
+        Game.spawns['Spawn_1'].spawnCreep([WORK,WORK,MOVE], newName,
             {memory: {role: 'harvester'}});
-    }
+    }*/
 
     /**
      *DELIVERER SPAWNERS
@@ -48,13 +52,13 @@ module.exports.loop = function () {
     /**
      * UPGRADER SPAWNERS
      */
-   /* if(upgraders.length < 2) {
+    if(upgraders.length < 2) {
         var newName = 'Upgrader' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
         Game.spawns['Spawn_1'].spawnCreep([WORK,CARRY,MOVE], newName,
             {memory: {role: 'upgrader'}});
 
-    }*/
+    }
 
     /**
      * BUILDERS SPAWNERS

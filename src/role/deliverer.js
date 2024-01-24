@@ -13,7 +13,7 @@ var roleDeliverer = {
 
             if (creep.pickup(closestDroppingEnergy) === ERR_NOT_IN_RANGE)
             {
-                creep.moveTo(closestDroppingEnergy, {visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.moveTo(closestDroppingEnergy, {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
         else {
@@ -23,7 +23,7 @@ var roleDeliverer = {
             const closestSpawn = creep.pos.findClosestByRange(spawns)
 
             if (creep.transfer(closestSpawn, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE){
-                creep.moveTo(closestSpawn,{visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.moveTo(closestSpawn,{visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
 
