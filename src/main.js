@@ -1,5 +1,11 @@
-require('State.HarvesterState.harvesterStates');
-require('State.HarvesterState.harvestState');
+require('State.harvesterStates');
+require('State.harvestState');
+require('State.delivererStates');
+require('State.depositingState');
+require('State.lootingState');
+require('Const_State');
+
+
 
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
@@ -31,9 +37,8 @@ var roleDeliverer = require('role.deliverer');
         /**
          * HARVESTER SPAWNERS
          */
-        if(harvesters.length < 5) {
+        if(harvesters.length < 3) {
             var newName = 'Harvester' + Game.time;
-            console.log('Spawning new harvester: ' + newName);
             Game.spawns['Spawn_1'].spawnCreep([WORK,WORK,MOVE], newName,
                 {memory: {role: 'harvester'}});
         }
@@ -43,8 +48,7 @@ var roleDeliverer = require('role.deliverer');
          */
              if(deliverer.length < 2) {
              var newName = 'Deliverer' + Game.time;
-             console.log('Spawning new deliverer: ' + newName);
-             Game.spawns['Spawn_1'].spawnCreep([CARRY,MOVE,MOVE], newName,
+             Game.spawns['Spawn_1'].spawnCreep([CARRY,CARRY,MOVE], newName,
                  {memory: {role: 'deliverer'}});
          }
 
@@ -54,7 +58,6 @@ var roleDeliverer = require('role.deliverer');
          */
        /* if(upgraders.length < 2) {
             var newName = 'Upgrader' + Game.time;
-            console.log('Spawning new upgrader: ' + newName);
             Game.spawns['Spawn_1'].spawnCreep([WORK,CARRY,MOVE], newName,
                 {memory: {role: 'upgrader'}});
 
@@ -65,7 +68,6 @@ var roleDeliverer = require('role.deliverer');
          */
        /* if(builders.length < 1) {
             var newName = 'Builder' + Game.time;
-            console.log('Spawning new builder: ' + newName);
             Game.spawns['Spawn_1'].spawnCreep([WORK,CARRY,MOVE], newName,
                 {memory: {role: 'builder'}});
         }*/
@@ -101,7 +103,7 @@ var roleDeliverer = require('role.deliverer');
             }
             if(creep.memory.role === 'deliverer') {
                //roleDeliverer.run(creep);
-               // creep.runDeliverer()
+               creep.runDeliverer()
             }
         }
 

@@ -1,31 +1,25 @@
-Creep.prototype.stateSearchDroppedEnergy = function () {
+Creep.prototype.stateLootEnergy = function () {
 
 
-    if (this.store.getFreeCapacity() > 0) {
 
-        const droppedEnergy = creep.room.find(FIND_DROPPED_RESOURCES,
-            {filter : resource =>  resource.resourceType == RESOURCE_ENERGY})
+    if (this.store.getFreeCapacity(RESOURCE_ENERGY) > 0){
 
-
-        const closestDroppingEnergy = creep.pos.findClosestByRange(droppedEnergy)
+        const droppedEnergy = this.room.find(FIND_DROPPED_RESOURCES,
+            {filter : resource =>  resource.resourceType === RESOURCE_ENERGY})
 
 
-        if (droppedEnergy.length > 0 ) {
+        const closestDroppingEnergy = this.pos.findClosestByRange(droppedEnergy)
 
-            this.memory.state = global.STATE_LOOTING_ENERGY
-            this.say('💰')
+        if (this.pickup(closestDroppingEnergy) === ERR_NOT_IN_RANGE)
+        {
+            this.moveTo(closestDroppingEnergy, {visualizePathStyle: {stroke: '#ffffff'}});
         }
-        else {
-            this.memory.state = global.STATE_SEARCHING_ENERGY
-            this.say('🔎')
-        }
-
     }
     else {
-        this.memory.state = global.STATE_DEPOSITING_ENERGY
+
+        this.memory.state = global.STATE_DEPOSITING_ENERGY;
         this.say('🚚')
     }
-
 
 
 
