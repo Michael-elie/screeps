@@ -26,7 +26,6 @@ var roleDeliverer = {
                 creep.moveTo(closestSpawn,{visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
-
     }
 };
 

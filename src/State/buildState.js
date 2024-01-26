@@ -1,0 +1,6 @@
+Creep.prototype.stateBuild = function () {
+
+
+
+
+}

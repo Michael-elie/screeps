@@ -3,6 +3,10 @@ require('State.harvestState');
 require('State.delivererStates');
 require('State.depositingState');
 require('State.lootingState');
+require('State.pickUpState')
+require('State.repairState')
+require('State.buildState')
+require('State.builderStates')
 require('Const_State');
 
 
@@ -43,6 +47,7 @@ var roleDeliverer = require('role.deliverer');
                 {memory: {role: 'harvester'}});
         }
 
+
         /**
          *DELIVERER SPAWNERS
          */
@@ -66,11 +71,11 @@ var roleDeliverer = require('role.deliverer');
         /**
          * BUILDERS SPAWNERS
          */
-       /* if(builders.length < 1) {
+        if(builders.length < 1) {
             var newName = 'Builder' + Game.time;
             Game.spawns['Spawn_1'].spawnCreep([WORK,CARRY,MOVE], newName,
                 {memory: {role: 'builder'}});
-        }*/
+        }
 
 
         /**
@@ -93,13 +98,13 @@ var roleDeliverer = require('role.deliverer');
             if(creep.memory.role === 'harvester') {
                 //roleHarvester.run(creep);
                 creep.runHarvester()
-
             }
             if(creep.memory.role === 'upgrader') {
                // roleUpgrader.run(creep);
             }
             if(creep.memory.role === 'builder') {
               //  roleBuilder.run(creep);
+                creep.runBuilder()
             }
             if(creep.memory.role === 'deliverer') {
                //roleDeliverer.run(creep);
