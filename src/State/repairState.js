@@ -23,7 +23,8 @@
                 }
             }
             else {
-                let contnairs = this.room.find(FIND_STRUCTURES, {filter : (structure) => structure.structureType === STRUCTURE_CONTAINER})
+                let contnairs = this.room.find(FIND_STRUCTURES,
+                    {filter : (structure) => structure.structureType === STRUCTURE_CONTAINER})
                 contnairs.sort((a, b) => {
                     // Par exemple, si vous souhaitez prioriser la réparation d'une structure spécifique,
                     // comparez les hits de a et b pour les trier en conséquence.
@@ -37,6 +38,7 @@
                         this.moveTo(contnairs[0], {visualizePathStyle: {stroke: '#ffffff'}});
                     }
                 }
+
             }
 
         }
@@ -44,7 +46,7 @@
 
             this.memory.state = global.STATE_BUILD_CONSTRUCTION;
             this.say('🚧')
-            console.log('trvaux')
+
         }
 
 
